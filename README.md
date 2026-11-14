@@ -1,7 +1,7 @@
 # ai-indie-game-workflow
 
 > A gate-based production workflow for AI-assisted indie game development.
-> **The human decides. The AI reviews as two concrete players and a light scope check. Every step ends with a freeze card.**
+> **The human decides. The AI reviews from a target-player and a picky-player perspective (no invented personas) plus a light scope check. Every step ends with a freeze card.**
 
 一个给 AI 编码代理用的「独立游戏串行闸门」skill。不是教你"用 AI 做游戏"的教程，而是一套**约束 AI、逼人拍板、每步留下证据**的工作流。
 
@@ -14,7 +14,7 @@ AI 让"生成"变便宜之后，独立游戏最容易死于三件事：范围膨
 | 机制 | 作用 |
 |---|---|
 | **串行闸门** | 一次只推进一个模块；上一步没冻结，不许开下一步 |
-| **双视角评审** | AI 扮演目标玩家 + 挑剔玩家，再加一个轻量范围检查；每轮 ≤400 字，禁止夸 |
+| **双视角评审** | AI 用目标玩家 / 挑剔玩家两种视角，再加一个轻量范围检查；不虚构角色，每轮 ≤400 字，禁止夸 |
 | **A/B/C 决策分级** | 主题/玩法/结局/美术总调必须人定；小配角/占位文本 AI 自主，每周抽查 |
 | **冻结卡** | 每步留半页纸：已定 / 待定 / 风险 / 下一步验证 / 签字；改已冻结内容必须开变更单 |
 
@@ -27,7 +27,6 @@ references/
   templates.md              冻结卡、变更单、state.md、决策流水、测试记录、资产台账
   prompts.md                P1–P8 提示词（评审、冻结、变更、C 级清单、美术方式二、叙事审查、类型预设）
   scaling.md                1–30 人适配：签字矩阵、会议节奏、人多人少的坑
-  examples.md               一次合格评审的完整示例 + 两个反例
   quality-bar.md            10 条质量红线、失败模式、发送前五问
 scripts/
   init_workflow.py          在游戏项目里初始化 .gameworkflow/

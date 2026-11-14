@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1 (2026-11-14)
+
+- Remove persona presets from the review protocol. The agent must not invent player names, ages, jobs, or backstories; it asks the user for player information and uses only the neutral labels "target player / picky player".
+- Delete `references/examples.md` (it contained named example personas).
+- Rewrite `P5` from "generate two personas" to "ask the user, do not generate".
+
 ## v1.0.0 (2026-11-13)
 
 - Initial release.

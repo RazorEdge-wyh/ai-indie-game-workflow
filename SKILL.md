@@ -1,6 +1,6 @@
 ---
 name: ai-indie-game-workflow
-description: Use when a user is planning, scoping, or producing an indie game with AI and wants a disciplined gate-based workflow instead of generic advice. Covers narrative, art direction, blockout/maps, core loop, atmosphere, technical skeleton, vertical slice, production, and release. Triggers include "AI 做游戏", "独立游戏工作流", "游戏开发流程", "闸门", "冻结卡", "双视角评审", "剧情/美术/关卡/玩法定稿", "vertical slice", "indie game production", "game design gate". The human owns every A-level decision; the agent reviews as two concrete players plus a light scope check, and writes each gate into .gameworkflow/. Works for any genre and 1–30 people. Story is human-written unless explicitly delegated.
+description: Use when a user is planning, scoping, or producing an indie game with AI and wants a disciplined gate-based workflow instead of generic advice. Covers narrative, art direction, blockout/maps, core loop, atmosphere, technical skeleton, vertical slice, production, and release. Triggers include "AI 做游戏", "独立游戏工作流", "游戏开发流程", "闸门", "冻结卡", "双视角评审", "剧情/美术/关卡/玩法定稿", "vertical slice", "indie game production", "game design gate". The human owns every A-level decision; the agent reviews from a target-player and a picky-player perspective (never invents personas) plus a light scope check, and writes each gate into .gameworkflow/. Works for any genre and 1–30 people. Story is human-written unless explicitly delegated.
 ---
 
 # AI 独立游戏工作流 · 串行闸门
@@ -32,11 +32,12 @@ description: Use when a user is planning, scoping, or producing an indie game wi
 
 每轮只输出三段，**总计 ≤400 字**：
 
-1. **玩家视角**：扮演 2 个具体玩家（目标玩家 + 挑剔玩家，各给一个名字/画像），各 2–3 句：懂不懂、想不想继续、会在哪退出。不用技术词。
+1. **玩家视角**：用「目标玩家 / 挑剔玩家」两种视角各说 2–3 句：懂不懂、想不想继续、会在哪退出。**不要虚构玩家姓名、年龄、职业、人设**；用户给过玩家信息就引用，没给就先在问题里问，不要自己编。
 2. **范围视角**：只答三件事，每条一句：大概多久、最容易卡在哪、有没有更小的替代方案。**不展开技术细节、不写代码、不做架构评审。**
 3. **问题**：3–5 个只有人能回答的问题，每个带选项和推荐，一行一个。
 
 硬性纪律：
+- 不预设角色。需要玩家画像时先问用户；用户没要求就不生成。
 - 每轮必须写一句「我担心……」并给出具体反对意见，**禁止全肯定、禁止夸**。
 - 人回复后，输出冻结卡（≤200 字），本模块结束。一个小决策 2 轮内收敛，不无限聊。
 - 用户只说"可以"时，追问一句："这条里你最不确定的是哪一点？"
@@ -126,12 +127,11 @@ description: Use when a user is planning, scoping, or producing an indie game wi
 - `references/templates.md`：冻结卡、变更单、周复盘、测试记录、台账模板
 - `references/prompts.md`：双视角评审、冻结卡、变更单、C 级清单、类型预设
 - `references/scaling.md`：1–30 人适配与会议节奏
-- `references/examples.md`：一个恐怖联机游戏的叙事闸门真实对话示例
 - `references/quality-bar.md`：好/坏评审的判定标准与红线
 
 ## 开局七步（首次给用户看，不要展开成长文）
 
-1. 问项目一句话、类型、人数、每周投入。
+1. 问项目一句话、类型、人数、每周投入；玩家信息只问不编（见 `references/prompts.md` P5）。
 2. 选顺序预设，写 `state.md`。
 3. 从 G0 开始，按双视角协议问 3–5 个问题。
 4. 人回答 → 出冻结卡 → 落地到 `gates/G0.md`。
